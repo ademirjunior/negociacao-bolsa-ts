@@ -1,5 +1,7 @@
 /node_modules
 /servidor-api/node_modules
+.DS_Store
+settings.json
 # Logs
 logs
 *.log
