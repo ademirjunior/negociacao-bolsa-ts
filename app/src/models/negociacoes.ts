@@ -11,4 +11,8 @@ export class Negociacoes {
     public lista(): ReadonlyArray<Negociacao> {
         return this.negociacoes;
     }
+
+    public paraTexto(): string {
+        return JSON.stringify(this.negociacoes, null, 2);
+    }
 }
