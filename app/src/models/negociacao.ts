@@ -1,9 +1,12 @@
-export class Negociacao {
+import { Modelo } from "../interfaces/modelo.js";
+
+export class Negociacao implements Modelo<Negociacao> {
 
     constructor(
         private _data: Date,
         private _quantidade: number,
-        private _valor: number) { }
+        private _valor: number) { 
+        }
 
     public static criaDe(dataString: string, quantidadeString: string, valorString: string): Negociacao {
         const exp = /-/g;
@@ -36,5 +39,11 @@ export class Negociacao {
             Valor: ${this.valor},
             Quantidade: ${this.quantidade},
         `;
+    }
+
+    public ehIgual(negociacao: Negociacao): boolean {
+        return this.data.getDate() === negociacao.data.getDate()
+            && this.data.getMonth() === negociacao.data.getMonth()
+            && this.data.getFullYear() === negociacao.data.getFullYear();
     }
 }
